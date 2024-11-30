@@ -58,12 +58,20 @@ app.post('/orders', async (req, res) => {
   res.status(201).json({ message: 'Order created!' });
 });
 
+app.get('/ordered-meals', async (req, res) => {
+  const fileContent = await fs.readFile('./data/orders.json');
+
+  const orders = JSON.parse(fileContent);
+
+  res.status(200).json({ orders });
+});
+
 app.use((req, res) => {
   if (req.method === 'OPTIONS') {
-    return res.sendStatus(200);
+    return res.sendStatus(200);;
   }
 
   res.status(404).json({ message: 'Not found' });
 });
 
-app.listen(3000);
+app.listen(3001);

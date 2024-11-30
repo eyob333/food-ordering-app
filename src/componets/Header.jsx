@@ -8,7 +8,10 @@ function Header(){
             <img src={img} alt="logo-img" />
             <h1>react food</h1>
         </div>
-        <button className=''> cart </button>
+
+        <nav>
+            <button className=''> cart(0) </button>
+        </nav>
     </header> )
 }
 

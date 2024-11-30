@@ -1,11 +1,16 @@
 import Header from './componets/Header.jsx'
-import Meals from './componets/Products.jsx';
+import Meals from './componets/Menu.jsx';
 
 function App() {
   return (
     <>
+
       <Header />
-      < Meals />
+
+      <main>
+      < Meals />        
+      </main>
+
     </>
   );
 }
