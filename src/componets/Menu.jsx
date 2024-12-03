@@ -2,9 +2,7 @@ import Meals from "./Meals"
 import { fetchMenu } from "../https"
 import { useEffect, useState } from "react";
 
-
 function Menu(){
-
     const [fetchedData, setFethcedData] = useState([])
 
     useEffect( () => {
@@ -14,7 +12,7 @@ function Menu(){
             if( !response.ok ){
                 throw new Error("faild to featch the meals!!") 
             }
-            setFethcedData( resData)
+            setFethcedData(resData)
         }
         fetchMenu()
     }, [])
@@ -22,7 +20,7 @@ function Menu(){
     return <>
     <ul id="meals">
         { fetchedData.map( data => 
-            <Meals key={data.id} name={data.name} description={data.description} price={data.price} img={data.image}/>
+            <Meals key={data.id} meal={data}  />
         )}
     </ul>
     </>

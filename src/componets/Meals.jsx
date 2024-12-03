@@ -1,18 +1,26 @@
-// import { formatting } from 
+import { useContext } from "react"
+import cartContext from "../store/cartContext"
 import { formatting } from "../utils/formatter"
+import Button from "./ui/Button"
 
-function Meals({name, description, img, price}){
+
+function Meals({meal}){
+    const cartCtx = useContext(cartContext)
+
+    function addMealItem(){
+        cartCtx.addItem(meal)
+    }
 
     return <li className="meal-item">
         <article>
-            <img src={`http://localhost:3001/${img}`} alt="" />
+            <img src={`http://localhost:3001/${meal.image}`} alt="" />
             <div>         
-                <h3>{name}</h3>
-                <div className="meal-item-price"> {formatting(price)}</div>
-                <p className="meal-item-description"> {description} </p>
+                <h3>{meal.name}</h3>
+                <div className="meal-item-price"> {formatting(meal.price)}</div>
+                <p className="meal-item-description"> {meal.description} </p>
             </div>
             <p className="meal-item-actions">
-                <button>add to cart </button>
+                <Button onClick={addMealItem} > add to cart </Button> 
             </p>            
         </article>
     </li>

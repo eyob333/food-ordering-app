@@ -1,7 +1,14 @@
+import { useContext } from 'react'
+import CartContext from '../store/cartContext'
 import img from '../assets/logo.jpg'
+import Button from './ui/Button'
+
 
 function Header(){
+    const cartCtx = useContext(CartContext)
+    const totalCartItems = cartCtx.items.reduce( (totalNumberOfitems, item) => totalNumberOfitems + item.quantity  , 0)
 
+   
     return (
     <header id="main-header">
         <div id='title'>
@@ -10,7 +17,7 @@ function Header(){
         </div>
 
         <nav>
-            <button className=''> cart(0) </button>
+            <Button textOnly> {`cart (${totalCartItems})` }  </Button>
         </nav>
     </header> )
 }
