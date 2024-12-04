@@ -21,7 +21,7 @@ function UserProgressContextProvider({children}){
         
     }
 
-    function showcheckout(){
+    function showCheckout(){
         setUserProgress('showCheckout')
     }
 
@@ -33,7 +33,7 @@ function UserProgressContextProvider({children}){
         progress: userProgress,
         showCart,
         hideCart,
-        showcheckout,
+        showCheckout,
         hideCheckout
     }
 
