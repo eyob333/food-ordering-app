@@ -6,7 +6,6 @@ const CartContext = createContext({
     removeItem: (id) => {},
 })
 
-
 function cartReducer(state, action){
     if( action.type === 'ADD_ITEM'){
         const existingCartItemIndex =  state.items.findIndex( 
@@ -16,7 +15,7 @@ function cartReducer(state, action){
         const existingItem = state.items[existingCartItemIndex]
         if ( existingCartItemIndex > -1){
             const updatedItem = {
-                existingItem,
+                ...existingItem,
                 quantity: existingItem.quantity + 1
             }
             updatedItems[existingCartItemIndex] = updatedItem
