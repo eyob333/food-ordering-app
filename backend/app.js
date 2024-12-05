@@ -58,13 +58,13 @@ app.post('/orders', async (req, res) => {
   res.status(201).json({ message: 'Order created!' });
 });
 
-app.get('/ordered-meals', async (req, res) => {
-  const fileContent = await fs.readFile('./data/orders.json');
+// app.get('/ordered-meals', async (req, res) => {
+//   const fileContent = await fs.readFile('./data/orders.json');
 
-  const orders = JSON.parse(fileContent);
+//   const orders = JSON.parse(fileContent);
 
-  res.status(200).json({ orders });
-});
+//   res.status(200).json({ orders });
+// });
 
 app.use((req, res) => {
   if (req.method === 'OPTIONS') {
